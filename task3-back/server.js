@@ -24,18 +24,6 @@ app.get('/groups', (req, res) => {
   res.json(availableGroups);
 });
 
-app.post('/users', (req, res) => {
-  const { name, email, group } = req.body;
-  const newUser = {
-    id: users.length + 1,
-    name,
-    email,
-    group: group || 'others',
-  };
-  users.push(newUser);
-  res.status(201).json(newUser);
-});
-
 app.put('/users/:id', (req, res) => {
   const userId = parseInt(req.params.id);
   const { group } = req.body;
